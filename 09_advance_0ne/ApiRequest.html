@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="text-render"></h1>
+</body>
+<script>
+  const reqUrl = 'https://dog.ceo/api/breeds/list/all'
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', reqUrl);
+  let text1 = document.getElementById('text-render')
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState)
+    if (xhr.readyState === 4) {
+      const data = JSON.parse(xhr.responseText);
+      console.log(data.message.australian[0])
+      text1.innerHTML = data.message.australian
+    }
+  }
+  xhr.send()
+</script>
+
+</html>

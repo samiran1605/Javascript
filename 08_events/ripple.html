@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripple Effect</title>
+  <style>
+    /* CSS for ripple effect */
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      animation: ripple-animation 1s linear;
+    }
+
+    @keyframes ripple-animation {
+      to {
+        transform: scale(5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <! DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title> Water ripple effect using JavaScript </title>
+    </head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        color: #adadad;
+        background: #dbdbdb;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      .full-landing-image {
+        width: 100%;
+        height: 100vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)), url("1.png") no-repeat center;
+        position: relative;
+        float: left;
+      }
+
+      .mid h2 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 800;
+        color: white;
+        text-transform: uppercase;
+        margin: 0;
+        position: absolute;
+        top: 60%;
+        left: 60%;
+        font-size: 2rem;
+        transform: translate(-50%, -50%);
+      }
+
+      .mid h1 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 900;
+        color: white;
+        text-transform: uppercase;
+        margin: 0;
+        position: absolute;
+        top: 40%;
+        left: 60%;
+        font-size: 2rem;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"> </script>
+    <script>
+      $(document).ready(function () {
+        $(".full-landing-image").ripples({
+          resolution: 500,
+          perturbance: 0.04,
+        });
+      });  
+    </script>
+
+    <body class="full-landing-image">
+      <div class="mid" style="background-color: blue;">
+        <h1 class="glow"> samiran<br> </h1>
+        <h2 class="glow">Biswas</h2>
+      </div>
+    </body>
+
+    </html>
+    <!-- No specific HTML content required for ripple effect -->
+
+    <script>
+      // Attach event listener to the document
+      document.addEventListener('click', function (event) {
+        createRipple(event);
+      });
+
+      function createRipple(event) {
+        // Create a ripple effect element
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+
+        // Calculate click position relative to the document
+        const offsetX = event.clientX;
+        const offsetY = event.clientY;
+
+        // Set ripple position
+        ripple.style.left = offsetX + 'px';
+        ripple.style.top = offsetY + 'px';
+
+        // Append ripple to the body element
+        document.body.appendChild(ripple);
+
+        // Remove ripple element after animation
+        ripple.addEventListener('animationend', () => {
+          ripple.remove();
+        });
+      }
+    </script>
+
+</body>
+
+</html>
